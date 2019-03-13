@@ -17,7 +17,7 @@
     "Edwin Webb <edwin.webb@gmail.com>"
   ],
   "scripts": {
-    "start": "webpack-dev-server --mode development",
+    "start": "webpack-dev-server --mode development --open",
     "webpack": "webpack --mode development",
     "build": "webpack --mode production",
     "format": "find app -name '*.js' | xargs -I{} ./node_modules/.bin/prettier --write --single-quote {}",
