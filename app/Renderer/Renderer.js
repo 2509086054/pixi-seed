@@ -1,7 +1,7 @@
-import { WebGLRenderer } from 'pixi.js';
-import Store, { AnimationStore } from '../stores/Store';
-import { tick } from '../stores/AnimationStore';
-import { resize } from '../stores/RendererStore';
+import { WebGLRenderer } from 'pixi.js'
+import Store, { AnimationStore } from '../stores/Store'
+import { tick } from '../stores/AnimationStore'
+import { resize } from '../stores/RendererStore'
 
 /**
  * GL Renderer with hooks into a Store
@@ -13,11 +13,11 @@ import { resize } from '../stores/RendererStore';
  */
 export default class Renderer extends WebGLRenderer {
   constructor(options) {
-    super(options);
+    super(options)
 
-    window.addEventListener('resize', this.resizeHandler.bind(this));
+    window.addEventListener('resize', this.resizeHandler.bind(this))
 
-    this.resizeHandler();
+    this.resizeHandler()
   }
 
   /**
@@ -25,8 +25,8 @@ export default class Renderer extends WebGLRenderer {
    * @return {null}
    */
   resizeHandler() {
-    Store.dispatch(resize());
-    this.resize(window.innerWidth, window.innerHeight);
+    Store.dispatch(resize())
+    this.resize(window.innerWidth, window.innerHeight)
   }
 
   /**
@@ -34,8 +34,8 @@ export default class Renderer extends WebGLRenderer {
    * @return {null}
    */
   start() {
-    this.active = true;
-    window.requestAnimationFrame(this.animate.bind(this));
+    this.active = true
+    window.requestAnimationFrame(this.animate.bind(this))
   }
 
   /**
@@ -43,7 +43,7 @@ export default class Renderer extends WebGLRenderer {
    * @return {null}
    */
   stop() {
-    this.active = false;
+    this.active = false
   }
 
   /**
@@ -52,8 +52,8 @@ export default class Renderer extends WebGLRenderer {
    */
   animate() {
     if (this.active) {
-      window.requestAnimationFrame(this.animate.bind(this));
-      AnimationStore.dispatch(tick());
+      window.requestAnimationFrame(this.animate.bind(this))
+      AnimationStore.dispatch(tick())
     }
   }
 }

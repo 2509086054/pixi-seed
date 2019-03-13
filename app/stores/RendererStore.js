@@ -1,13 +1,13 @@
 // template : https://github.com/erikras/ducks-modular-redux
 
-import { canvasWidth, canvasHeight } from '../constants/AppConstants';
+import { canvasWidth, canvasHeight } from '../constants/AppConstants'
 
 const windowSize = () => ({
   width: window.innerWidth,
   height: window.innerHeight,
   resolution: window.devicePixelRatio,
   stageCenter: { x: window.innerWidth / 2, y: window.innerHeight / 2 }
-});
+})
 
 const defaultState = {
   canvasHeight,
@@ -17,9 +17,9 @@ const defaultState = {
     y: canvasHeight / 2
   },
   ...windowSize()
-};
+}
 
-const RESIZE = 'seed/animation/TICK';
+const RESIZE = 'seed/animation/TICK'
 
 export default (state = defaultState, action = {}) => {
   switch (action.type) {
@@ -27,10 +27,10 @@ export default (state = defaultState, action = {}) => {
       return {
         ...state,
         ...windowSize()
-      };
+      }
     default:
-      return state;
+      return state
   }
-};
+}
 
-export const resize = () => ({ type: RESIZE });
+export const resize = () => ({ type: RESIZE })

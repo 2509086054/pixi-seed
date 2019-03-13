@@ -1,7 +1,7 @@
-import { Container, Point } from 'pixi.js';
-import Store from '../../stores/Store';
-import { resize } from '../../stores/RendererStore';
-import { checkScreen } from '../../utils';
+import { Container, Point } from 'pixi.js'
+import Store from '../../stores/Store'
+// import { resize } from '../../stores/RendererStore'
+import { checkScreen } from '../../utils'
 
 /**
  * ScaledContainer
@@ -13,6 +13,7 @@ import { checkScreen } from '../../utils';
  * @exports ScaledContainer
  */
 export default class ScaledContainer extends Container {
+
   /**
    * Set target size
    * @param  {Number} target_w width
@@ -20,12 +21,12 @@ export default class ScaledContainer extends Container {
    * @return {null}
    */
   constructor(...args) {
-    super(...args);
+    super(...args)
 
     this.currentSize = {
       w: 0,
       h: 0
-    };
+    }
 
     // TODO : init resize should come from renderer
     this.resizeHandler(
@@ -33,7 +34,7 @@ export default class ScaledContainer extends Container {
       window.innerHeight,
       Store.getState().Renderer.canvasWidth,
       Store.getState().Renderer.canvasHeight
-    );
+    )
 
     Store.subscribe(() => {
       const {
@@ -41,19 +42,19 @@ export default class ScaledContainer extends Container {
         height,
         canvasWidth,
         canvasHeight
-      } = Store.getState().Renderer;
-      const { w, h } = this.currentSize;
-      const needsResize = checkScreen(width, height, w, h);
+      } = Store.getState().Renderer
+      const { w, h } = this.currentSize
+      const needsResize = checkScreen(width, height, w, h)
 
       if (needsResize) {
-        this.resizeHandler(width, height, canvasWidth, canvasHeight);
+        this.resizeHandler(width, height, canvasWidth, canvasHeight)
       }
 
       this.currentSize = {
         w: width,
         h: height
-      };
-    });
+      }
+    })
   }
 
   /**
@@ -61,22 +62,22 @@ export default class ScaledContainer extends Container {
    * @return {null}
    */
   resizeHandler(rw, rh, tw = 1920, th = 1080) {
-    const Xratio = rw / tw;
-    const Yratio = rh / th;
-    let scaleRatio = rw > rh ? Xratio : Yratio;
-    let scale = new Point(scaleRatio, scaleRatio);
-    let offsetX = rw / 2 - tw * scaleRatio / 2;
-    let offsetY = rh / 2 - th * scaleRatio / 2;
+    const Xratio = rw / tw
+    const Yratio = rh / th
+    let scaleRatio = rw > rh ? Xratio : Yratio
+    let scale = new Point(scaleRatio, scaleRatio)
+    let offsetX = rw / 2 - tw * scaleRatio / 2
+    let offsetY = rh / 2 - th * scaleRatio / 2
 
     if (th * scaleRatio < rh) {
-      scaleRatio = Yratio;
-      scale = new Point(scaleRatio, scaleRatio);
-      offsetX = rw / 2 - tw * scaleRatio / 2;
-      offsetY = rh / 2 - th * scaleRatio / 2;
+      scaleRatio = Yratio
+      scale = new Point(scaleRatio, scaleRatio)
+      offsetX = rw / 2 - tw * scaleRatio / 2
+      offsetY = rh / 2 - th * scaleRatio / 2
     }
 
-    this.position.x = offsetX;
-    this.position.y = offsetY;
-    this.scale = scale;
+    this.position.x = offsetX
+    this.position.y = offsetY
+    this.scale = scale
   }
 }

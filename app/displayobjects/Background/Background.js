@@ -1,6 +1,6 @@
-import { Sprite } from 'pixi.js';
-import SOFT from './soft.jpg';
-import ScaledContainer from '../ScaledContainer/ScaledContainer';
+import { Sprite } from 'pixi.js'
+import SOFT from './soft.jpg'
+import ScaledContainer from '../ScaledContainer/ScaledContainer'
 
 /**
  * Loads the adds the diagnostic image
@@ -10,10 +10,10 @@ import ScaledContainer from '../ScaledContainer/ScaledContainer';
  */
 export default class Background extends ScaledContainer {
   constructor() {
-    super();
+    super()
 
-    const bg = Sprite.fromImage(SOFT);
+    const bg = Sprite.fromImage(SOFT)
 
-    this.addChild(bg);
+    this.addChild(bg)
   }
 }
