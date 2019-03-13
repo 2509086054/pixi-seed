@@ -2,8 +2,7 @@
   "name": "pixi-seed",
   "version": "0.3.7",
   "repository": "https://github.com/edwinwebb/pixi-seed",
-  "description":
-    "Pixi.js project seed / boiler-plate with ES6, Webpack and Redux",
+  "description": "Pixi.js project seed / boiler-plate with ES6, Webpack and Redux",
   "keywords": [
     "webgl",
     "pixi",
@@ -14,13 +13,14 @@
     "es6",
     "glsl"
   ],
-  "contributors": ["Edwin Webb <edwin.webb@gmail.com>"],
+  "contributors": [
+    "Edwin Webb <edwin.webb@gmail.com>"
+  ],
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "webpack": "webpack --mode development",
     "build": "webpack --mode production",
-    "format":
-      "find app -name '*.js' | xargs -I{} ./node_modules/.bin/prettier --write --single-quote {}",
+    "format": "find app -name '*.js' | xargs -I{} ./node_modules/.bin/prettier --write --single-quote {}",
     "prewebpack": "npm run clean",
     "precommit": "lint-staged",
     "clean": "rm -rf ./build && mkdir ./build",
@@ -40,6 +40,7 @@
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.11.0",
     "eslint-config-prettier": "^2.7.0",
+    "eslint-plugin-html": "^5.0.3",
     "eslint-plugin-prettier": "^2.3.1",
     "file-loader": "^1.1.11",
     "husky": "^0.14.3",
@@ -55,8 +56,13 @@
   "engines": {
     "node": ">=8.0.0"
   },
-  "plugins": ["prettier"],
+  "plugins": [
+    "prettier"
+  ],
   "lint-staged": {
-    "*.{js,json}": ["prettier --write --single-quote", "git add"]
+    "*.{js,json}": [
+      "prettier --write --single-quote",
+      "git add"
+    ]
   }
 }
