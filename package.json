@@ -24,7 +24,7 @@
     "prewebpack": "npm run clean",
     "precommit": "lint-staged",
     "clean": "rm -rf ./build && mkdir ./build",
-    "lint": "eslint ./app/**/*.js",
+    "lint": "eslint ./app/**/*.js --fix",
     "reactman": "reactman --config ./templates/reactman.config.js"
   },
   "dependencies": {
