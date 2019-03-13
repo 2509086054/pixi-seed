@@ -29,6 +29,12 @@
     "no-func-assign": 2,
     "no-invalid-regexp": 2,
     "no-dupe-keys": 2,
-    "comma-dangle": [2, "never"]
+    "comma-dangle": [2, "never"],
+    "semi":["error","never"],
+    "max-len": ["error", 100],
+    "no-multiple-empty-lines": "error",
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
+    "eol-last": "error",
+    "lines-around-comment": ["error", { "beforeBlockComment": true }]
   }
 }
