@@ -32,9 +32,10 @@
     "comma-dangle": [2, "never"],
     "semi":["error","never"],
     "max-len": ["error", 100],
-    "no-multiple-empty-lines": "error",
     "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 2 }],
     "eol-last": "error",
-    "lines-around-comment": ["error", { "beforeBlockComment": true }]
+    "lines-around-comment": ["error", { "beforeBlockComment": true }],
+    "no-multiple-empty-lines": ["error",{ "max": 1 }],
+    "spaced-comment": ["error", "always"]
   }
 }
